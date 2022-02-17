@@ -1,21 +1,21 @@
-# Generated with JReleaser 1.0.0-M1 at 2022-02-08T07:12:51.8421Z
+# Generated with JReleaser 1.0.0-M2 at 2022-02-17T00:40:24.343662Z
 FROM azul/zulu-openjdk-alpine:17-jre
 
-LABEL "org.opencontainers.image.title"="riot-stream"
+LABEL "org.opencontainers.image.title"="riot-db"
 LABEL "org.opencontainers.image.description"="Redis Input/Output Tools"
 LABEL "org.opencontainers.image.url"="https://developer.redis.com/riot"
 LABEL "org.opencontainers.image.licenses"="Apache-2.0"
-LABEL "org.opencontainers.image.version"="2.15.2"
-LABEL "org.opencontainers.image.revision"="53fc643085f07acaced6a7a7e13ae71e45bf1b1e"
+LABEL "org.opencontainers.image.version"="2.15.4"
+LABEL "org.opencontainers.image.revision"="8b106f9d4065050521ca39ade95cb9978e07ab7f"
 
 
 COPY assembly/ /
 
-RUN unzip riot-stream-2.15.2.zip && \
-    rm riot-stream-2.15.2.zip && \
-    chmod +x riot-stream-2.15.2/bin/riot-stream
+RUN unzip riot-db-2.15.4.zip && \
+    rm riot-db-2.15.4.zip && \
+    chmod +x riot-db-2.15.4/bin/riot-db
 
 
-ENV PATH="${PATH}:/riot-stream-2.15.2/bin"
+ENV PATH="${PATH}:/riot-db-2.15.4/bin"
 
-ENTRYPOINT ["/riot-stream-2.15.2/bin/riot-stream"]
+ENTRYPOINT ["/riot-db-2.15.4/bin/riot-db"]
